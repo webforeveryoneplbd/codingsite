@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #9aeaf0;
+    min-height: 240vh;
+}
+
+header {
+    background-color:#fff;
+    color: #fff;
+    padding: 0px;
+    text-align: center;
+}
+
+.h1 {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 300%;
+    text-align: center;
+    color: black;
+    background-color: #fff;
+}
+
+h2 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: medium;
+    text-align: center;
+    color: black;
+}
+
+.mission {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: small;
+    text-align: center;
+    color: black;
+    margin-bottom: 30%;
+    margin-top: 30%;
+}
+
+
+.objectives {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: large;
+    text-align: center;
+    color: black;
+    margin-bottom:50%;
+ 
+}
+
+.buttons {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: small;
+    text-align: center;
+    color: blue;
+    margin-bottom:30%;
+}
+
+.footer {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: medium;
+    text-align: center;
+    padding: 90px;
+    color: rgb(102, 102, 134);
+}
+
+.profile {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: small;
+    text-align: center;
+    color: blue;
+    margin-bottom: 20%;
+    margin-top: 20%;
+}
+.links{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align:right;
+    display: flex;
+    width: 900px;
+    font-size: medium;
+    color: blue;
+    margin-bottom: 10%;
+    margin-right: 80px;
+
+}
+.header-content {
+    display: flex; /* Utilisation de Flexbox pour aligner les éléments horizontalement */
+    align-items: center; /* Centre les éléments verticalement */
+}
