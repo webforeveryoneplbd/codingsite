@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Register Form - CodeCraftedWeb</title>
+    <link rel="stylesheet" href="coding1.css">
+</head>
+<body>
+    <div class="container">
+        <div class="main">  	
+            <input type="checkbox" id="chk" aria-hidden="true">
+    
+            <div class="login">
+                <form class="form" action="coding2.html">
+                    <label for="chk" aria-hidden="true">Log in</label>
+                    <input class="input" type="id" name="id" placeholder="id" required>
+                    <input class="input" type="password" name="pswd" placeholder="Password" required>
+                    <button>Log in</button>
+                </form>
+            </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Base de données simple pour stocker les utilisateurs
+        const users = {};
+    
+        function signin() {
+            const username = document.getElementById('id').value;
+            const password = document.getElementById('signin-password').value;
+            
+            // Vérifier si l'utilisateur existe et si le mot de passe est correct
+            if (users.hasOwnProperty(username) && users[username] === password) {
+                alert('Connexion réussie ! Bienvenue, ' + username + '!');
+            } else {
+                alert('Échec de la connexion. Veuillez vérifier vos informations.');
+            }
+        }
+    </script>
+    
+    </body>
+    </html>
+    
+</body>
+</html>
