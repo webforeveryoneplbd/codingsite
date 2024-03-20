@@ -8,40 +8,50 @@
 </head>
 <body>
     <div class="container">
-        <div class="main">  	
-            <input type="checkbox" id="chk" aria-hidden="true">
-    
-            <div class="login">
-                <form class="form" action="coding2.html">
-                    <label for="chk" aria-hidden="true">Log in</label>
-                    <input class="input" type="id" name="id" placeholder="id" required>
-                    <input class="input" type="password" name="pswd" placeholder="Password" required>
-                    <button>Log in</button>
-                </form>
-            </div>
+        <div class="main">  
+            <div id="login-form">
+                <form class="form" action="" method="POST">
+                    <label for="id">ID:</label>
+                    <input class="input" type="text" id="id" name="id" required>
+                    <label for="password">Password:</label>
+                    <input class="input" type="password" id="password" name="password" required>
+                    <button type="submit">Log in</button>
                 </form>
             </div>
         </div>
     </div>
+
     <script>
-        // Base de données simple pour stocker les utilisateurs
-        const users = {};
-    
-        function signin() {
-            const username = document.getElementById('id').value;
-            const password = document.getElementById('signin-password').value;
-            
-            // Vérifier si l'utilisateur existe et si le mot de passe est correct
-            if (users.hasOwnProperty(username) && users[username] === password) {
-                alert('Connexion réussie ! Bienvenue, ' + username + '!');
-            } else {
-                alert('Échec de la connexion. Veuillez vérifier vos informations.');
-            }
-        }
+        document.querySelector("#login-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Empêche le formulaire de se soumettre normalement
+        
+            // Récupérer les valeurs des champs d'entrée
+            const id = document.getElementById("id").value;
+            const password = document.getElementById("password").value;
+        
+            // Charger le fichier texte contenant les identifiants et les mots de passe des utilisateurs
+            fetch('data_base.txt')
+                .then(response => response.text())
+                .then(text => {
+                    // Diviser le texte en lignes et rechercher les identifiants et les mots de passe
+                    const lines = text.split('\n');
+                    const credentials = lines.map(line => line.split(':'));
+                    
+                    // Vérifier si les identifiants et les mots de passe correspondent à ceux saisis par l'utilisateur
+                    const user = credentials.find(cred => cred[0] === id && cred[1] === password);
+                    if (user) {
+                        alert('Connexion réussie ! Bienvenue, ' + id + '!');
+                    } else {
+                        alert('Échec de la connexion. Identifiants incorrects.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Une erreur s\'est produite lors du chargement du fichier:', error);
+                    alert('Une erreur s\'est produite lors de la connexion. Veuillez réessayer plus tard.');
+                });
+        });
+        
     </script>
-    
-    </body>
-    </html>
-    
 </body>
 </html>
+
