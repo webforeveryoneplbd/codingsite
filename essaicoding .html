@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign-up / Sign-in</title>
+<style>
+    .form-container {
+        width: 300px;
+        margin: 0 auto;
+    }
+    input {
+        margin-bottom: 10px;
+    }
+    button {
+        margin-top: 10px;
+    }
+</style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Sign-up</h2>
+    <input type="text" id="signup-username" placeholder="Username">
+    <input type="password" id="signup-password" placeholder="Password">
+    <button onclick="signup()">Sign-up</button>
+</div>
+
+<div class="form-container">
+    <h2>Sign-in</h2>
+    <input type="text" id="id" placeholder="id">
+    <input type="password" id="signin-password" placeholder="Password">
+    <button onclick="signin()">Sign-in</button>
+</div>
+
+<script>
+    // Base de données simple pour stocker les utilisateurs
+    const users = {};
+
+    function signup() {
+        const username = document.getElementById('id').value;
+        const password = document.getElementById('signup-password').value;
+        
+        // Vérifier si l'utilisateur existe déjà
+        if (users.hasOwnProperty(username)) {
+            alert('Ce nom d\'utilisateur est déjà pris. Veuillez en choisir un autre.');
+            return;
+        }
+
+        // Ajouter l'utilisateur à la base de données
+        users[username] = password;
+        alert('Inscription réussie ! Vous pouvez maintenant vous connecter.');
+    }
+
+    function signin() {
+        const username = document.getElementById('id').value;
+        const password = document.getElementById('signin-password').value;
+        
+        // Vérifier si l'utilisateur existe et si le mot de passe est correct
+        if (users.hasOwnProperty(username) && users[username] === password) {
+            alert('Connexion réussie ! Bienvenue, ' + username + '!');
+        } else {
+            alert('Échec de la connexion. Veuillez vérifier vos informations.');
+        }
+    }
+</script>
+
+</body>
+</html>
